@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+body {
+  @apply bg-panel text-ink font-sans antialiased;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+.safe-top { padding-top: env(safe-area-inset-top, 0px); }
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom, 0px); }
+:focus-visible { outline: 2px solid #F0B23E; outline-offset: 2px; }
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 min-h-[44px] text-sm font-semibold transition-colors disabled:opacity-40; }
+  .btn-primary { @apply bg-amber text-panel active:bg-[#d89a2b]; }
+  .btn-ghost { @apply bg-raise text-ink border border-line active:bg-line; }
+  .btn-danger { @apply bg-danger text-panel; }
+  .field { @apply w-full rounded-xl bg-base border border-line px-3 min-h-[44px] text-base text-ink placeholder:text-mute; }
+  .chip { @apply rounded-full border border-line px-3 min-h-[40px] text-sm text-mute; }
+  .chip-on { @apply border-amber text-amber bg-amber-dim; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
